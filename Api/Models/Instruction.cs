@@ -10,7 +10,7 @@ namespace Pyx.Api.Models
         public Guid Id { get; set; }
         public String Title { get; set; }
         public String Description { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime CreatedAt { get; set; }
         public String CreatedBy { get; set; }
     }
 }

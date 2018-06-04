@@ -14,7 +14,7 @@ namespace Pyx.Api.Controllers
         [HttpGet]
         public Instruction Get()
         {
-            return new Instruction { CreatedBy = "Owen", Date = DateTime.Now, Title = "Stub Instruction",
+            return new Instruction { CreatedBy = "Owen", CreatedAt = DateTime.Now, Title = "Stub Instruction",
                 Description = "Stub Instruction Description", Id = Guid.NewGuid(),
             };
         }
