@@ -11,3 +11,6 @@ The Pyx API is a lightweight dotnetcore 2.1 API.
 - PerformanceController
 - InstructionController
 - ReactionController
+
+### Usage Instructions
+To fire up the API - go to a terminal/command prompt to ´/Api´ and run ´dotnet run´
