@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
-namespace Pyx.Api.Models
+namespace Pyx.Data.Entities
 {
     public class Reaction
     {
+        [Key]
         public int Id { get; set; }
         public String CreatedBy { get; set; }
         public Byte Rating { get; set; }
-        public int InstructionId { get; set; }
+        public Instruction Instruction { get; set; }
     }
 }
