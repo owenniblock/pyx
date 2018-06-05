@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Pyx.Api.Models;
+using Pyx.Shared.Models;
 using Pyx.Data;
 
 namespace Pyx.Api.Controllers
@@ -31,7 +31,9 @@ namespace Pyx.Api.Controllers
 
             _context.Reactions.Add(new Data.Entities.Reaction
             {
-
+                Rating = value.Rating,
+                CreatedBy = value.CreatedBy,
+                Instruction = instruction
             });
         }
     }

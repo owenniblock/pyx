@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Pyx.Api.Models;
+using Pyx.Shared.Models;
 using Pyx.Data;
 
 namespace Pyx.Api.Controllers
@@ -19,20 +19,22 @@ namespace Pyx.Api.Controllers
         }
 
         // GET api/instruction/{id}
-        [HttpGet]
-        public Instruction Get(int id)
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
             var instruction = _context.Instructions.Where(x => x.Id == id).SingleOrDefault();
 
             if (instruction == null)
             {
-                return null;
+                return NotFound();
             }
 
-            return new Instruction
+            var output = new Instruction
             { CreatedBy = instruction.CreatedBy, CreatedAt = instruction.CreatedAt, Title = instruction.Title,
                 Description = instruction.Description, Id = id,
             };
+
+            return Ok(output);
         }
 
         // POST api/instruction
@@ -44,9 +46,10 @@ namespace Pyx.Api.Controllers
                 CreatedAt = DateTime.Now,
                 CreatedBy = value.CreatedBy,
                 Title = value.Title,
-                Description = value.Description,
-                Id = value.Id
+                Description = value.Description
             });
+
+            _context.SaveChanges();
         }
     }
 }

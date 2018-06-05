@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Pyx.Api.Models
+namespace Pyx.Shared.Models
 {
-    public class Instruction
+    public class Reaction
     {
         public int Id { get; set; }
-        public String Title { get; set; }
-        public String Description { get; set; }
-        public DateTime CreatedAt { get; set; }
         public String CreatedBy { get; set; }
+        public Byte Rating { get; set; }
+        public int InstructionId { get; set; }
     }
 }
