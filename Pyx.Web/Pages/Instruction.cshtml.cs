@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -14,12 +15,15 @@ namespace Pyx.Web.Pages
         public string Message { get; set; }
 
         [BindProperty]
+        [Display(Name = "Answer me, these questions three. What is your name?")]
         public string CreatedBy { get; set; }
 
         [BindProperty]
+        [Display(Name="What is your quest? I mean, put your set-up or introduction here:")]
         public string Title { get; set; }
 
         [BindProperty]
+        [Display(Name = "Put your punchline here:")]
         public string Description { get; set; }
 
         public async void OnGetAsync(int? id)
