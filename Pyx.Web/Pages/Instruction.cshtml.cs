@@ -28,8 +28,10 @@ namespace Pyx.Web.Pages
 
             if (id.HasValue)
             {
-                var apiHelper = new ApiHelper("http://localhost:51401");
+                var apiHelper = new ApiHelper("http://localhost:5002");
                 var instruction = await apiHelper.GetInstruction(id.Value);
+
+                ModelState.Clear();
 
                 CreatedBy = instruction.CreatedBy;
                 Title = instruction.Title;
@@ -46,7 +48,7 @@ namespace Pyx.Web.Pages
 
             var createdBy = CreatedBy;
             //TODO: Make this configurable depending on environment
-            var apiHelper = new ApiHelper("http://localhost:51401");
+            var apiHelper = new ApiHelper("http://localhost:5002");
             await apiHelper.CreateInstruction(new Instruction
             {
                 Title = Title,

@@ -29,9 +29,9 @@ namespace Pyx.Client
         public async Task<Instruction> GetInstruction(int id)
         {
             var url = _url + "/api/instruction/" + id;
-            var streamTask = client.GetStreamAsync(url);
-            var serializer = new DataContractJsonSerializer(typeof(Instruction));
-            var instruction = serializer.ReadObject(await streamTask) as Instruction;
+            var stringTask = client.GetStringAsync(url);
+            var stringOutput = await stringTask;
+            var instruction = JsonConvert.DeserializeObject<Instruction>(stringOutput);
 
             return instruction;
         }
