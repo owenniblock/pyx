@@ -30,7 +30,10 @@ namespace Pyx.Api.Controllers
             }
 
             var output = new Instruction
-            { CreatedBy = instruction.CreatedBy, CreatedAt = instruction.CreatedAt, Title = instruction.Title,
+            {
+                CreatedBy = instruction.CreatedBy,
+                CreatedAt = instruction.CreatedAt,
+                Title = instruction.Title,
                 Description = instruction.Description, Id = id,
             };
 
